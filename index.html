@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Золотий час — Ярий & БетБіт</title>
+  <link rel="icon" href="IMG_2299.jpeg" type="image/jpeg" />
+  <!-- Preconnect for Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --text-light: #fff;
+      --text-muted: #ccc;
+      --btn-bg: rgba(0, 0, 0, 0.6);
+      --btn-hover: rgba(255, 255, 255, 0.08);
+      --btn-border: rgba(255, 255, 255, 0.15);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    html, body {
+      height: 100%;
+      min-height: 100vh;
+      background: #000;
+    }
+
+    body {
+      position: relative;
+      z-index: 0;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: url('IMG_2299.jpeg') no-repeat center center;
+      background-size: cover;
+      filter: blur(4px) brightness(0.4);
+      z-index: -1;
+    }
+
+    .card {
+      background-color: rgba(0, 0, 0, 0.65);
+      backdrop-filter: blur(6px);
+      border-radius: 14px;
+      padding: 24px 20px;
+      max-width: 360px;
+      margin: 40px auto;
+      text-align: center;
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeSlideIn 0.8s forwards ease-out;
+      animation-delay: 0.3s;
+    }
+
+    @keyframes fadeSlideIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .cover {
+      width: 100%;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      transition: transform 0.3s ease;
+      will-change: transform;
+    }
+
+    h1 {
+      font-size: 24px;
+      color: var(--text-light);
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    h2 {
+      font-size: 15px;
+      color: var(--text-muted);
+      font-weight: 400;
+      margin-bottom: 24px;
+    }
+
+    .links {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background: var(--btn-bg);
+      color: #fff;
+      text-decoration: none;
+      padding: 14px;
+      border-radius: 8px;
+      width: 100%;
+      border: 1px solid var(--btn-border);
+      transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.15s ease;
+      opacity: 0;
+      animation: fadeInUp 0.5s forwards ease-out;
+      will-change: transform, opacity;
+    }
+
+    .link img {
+      width: 24px;
+      height: 24px;
+      transition: transform 0.3s ease;
+    }
+
+    .link:hover {
+      background: var(--btn-hover);
+      box-shadow: 0 4px 12px rgba(255, 255, 255, 0.25);
+    }
+
+    .link:hover img {
+      transform: scale(1.1);
+    }
+
+    .link:active {
+      transform: scale(0.95);
+    }
+
+    .link span {
+      font-size: 16px;
+      font-weight: 500;
+    }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+    }
+
+    @media (max-width: 480px) {
+      h1 { font-size: 22px; }
+      h2 { font-size: 14px; }
+
+      .link {
+        padding: 12px;
+      }
+
+      .link span {
+        font-size: 15px;
+      }
+
+      .link img {
+        width: 24px;
+        height: 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <img src="IMG_2299.jpeg" alt="Обкладинка треку Золотий час" class="cover" loading="lazy" />
+    <h1>Золотий час</h1>
+    <h2>Ярий feat БетБіт (smnbts prod.)</h2>
+
+    <div class="links">
+      <a class="link" href="https://music.apple.com/" target="_blank" rel="noopener noreferrer" style="animation-delay: 0.4s;">
+        <img src="https://img.icons8.com/color/48/apple-music--v1.png" alt="Apple Music" loading="lazy" />
+        <span>Apple Music</span>
+      </a>
+
+      <a class="link" href="https://youtube.com/" target="_blank" rel="noopener noreferrer" style="animation-delay: 0.55s;">
+        <img src="https://img.icons8.com/color/48/youtube-play.png" alt="YouTube" loading="lazy" />
+        <span>YouTube</span>
+      </a>
+
+      <a class="link" href="https://spotify.com/" target="_blank" rel="noopener noreferrer" style="animation-delay: 0.7s;">
+        <img src="https://img.icons8.com/fluency/48/spotify.png" alt="Spotify" loading="lazy" />
+        <span>Spotify</span>
+      </a>
+
+      <a class="link" href="https://music.youtube.com/" target="_blank" rel="noopener noreferrer" style="animation-delay: 0.85s;">
+        <img src="https://img.icons8.com/color/48/youtube-music.png" alt="YouTube Music" loading="lazy" />
+        <span>YouTube Music</span>
+      </a>
+    </div>
+  </div>
+
+  <script>
+    // Проверка — мобильное устройство?
+    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+
+    if (!isMobile) {
+      const cover = document.querySelector('.cover');
+
+      document.addEventListener('mousemove', e => {
+        const x = (e.clientX / window.innerWidth - 0.5) * 20;
+        const y = (e.clientY / window.innerHeight - 0.5) * 20;
+        cover.style.transform = `rotateX(${-y}deg) rotateY(${x}deg)`;
+      });
+
+      document.addEventListener('mouseleave', () => {
+        cover.style.transform = 'rotateX(0) rotateY(0)';
+      });
+    }
+  </script>
+</body>
+</html>
