@@ -1,26 +1,36 @@
 <!DOCTYPE html>
 <html lang="uk">
 <head>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-R1L6ER976E"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-R1L6ER976E');
+</script>
+<!-- SEO Description -->
+<meta name="description" content="Офіційний реліз треку «Золотий час» від Ярий & БетБіт (smnbts prod.). Дивись кліп та слухай на улюбленій платформі." />
+
+<!-- Open Graph (Facebook, Telegram, etc.) -->
+<meta property="og:title" content="Золотий час — Ярий feat БетБіт" />
+<meta property="og:description" content="Офіційний реліз треку «Золотий час» від Ярий & БетБіт (smnbts prod.). Дивись кліп та слухай на улюбленій платформі." />
+<meta property="og:image" content="https://yaruy-kaaz.github.io/yaruy-betbit/IMG_2299.jpeg" />
+<meta property="og:url" content="https://yaruy-kaaz.github.io/yaruy-betbit/" />
+<meta property="og:type" content="music.song" />
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Золотий час — Ярий feat БетБіт" />
+<meta name="twitter:description" content="Офіційний реліз треку «Золотий час» від Ярий & БетБіт (smnbts prod.). Дивись кліп та слухай на улюбленій платформі." />
+<meta name="twitter:image" content="https://yaruy-kaaz.github.io/yaruy-betbit/IMG_2299.jpeg" />
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <title>Золотий час — Ярий & БетБіт</title>
+  <title>Золотий час — Ярий feat БетБіт</title>
   <link rel="icon" href="IMG_2299.jpeg" type="image/jpeg" />
-  <!-- Preconnect for Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
-  <!-- Соц превью (Open Graph & Twitter) -->
-<meta property="og:type" content="website">
-<meta property="og:title" content="Золотий час — Ярий & БетБіт">
-<meta property="og:description" content="Новий реліз від Ярий feat БетБіт (smnbts prod.). Слухай на Spotify, YouTube, Apple Music.">
-<meta property="og:image" content="https://raw.githubusercontent.com/Yaruy-kaaz/yaruy-betbit/refs/heads/main/IMG_2299.jpeg">
-<meta property="og:url" content="https://yaruy-kaaz.github.io/yaruy-betbit/">
-
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Золотий час — Ярий & БетБіт">
-<meta name="twitter:description" content="Новий реліз від Ярий feat БетБіт (smnbts prod.). Слухай на Spotify, YouTube, Apple Music.">
-<meta name="twitter:image" content="https://raw.githubusercontent.com/Yaruy-kaaz/yaruy-betbit/refs/heads/main/IMG_2299.jpeg">
   <style>
     :root {
       --text-light: #fff;
@@ -83,12 +93,55 @@
       }
     }
 
-    .cover {
+    .video-wrapper {
+      position: relative;
       width: 100%;
       border-radius: 10px;
       margin-bottom: 20px;
+      overflow: hidden;
+      aspect-ratio: 1 / 1;
+      cursor: pointer;
       transition: transform 0.3s ease;
       will-change: transform;
+    }
+
+    .video-wrapper img,
+    .video-wrapper iframe {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 10px;
+      display: block;
+    }
+
+    .play-button {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 64px;
+      height: 64px;
+      background: rgba(255, 255, 255, 0.25);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.3s ease;
+      z-index: 2;
+    }
+
+    .play-button::before {
+      content: "";
+      display: block;
+      width: 0;
+      height: 0;
+      border-left: 18px solid white;
+      border-top: 12px solid transparent;
+      border-bottom: 12px solid transparent;
+    }
+
+    .video-wrapper:hover .play-button {
+      background: rgba(255, 255, 255, 0.35);
     }
 
     h1 {
@@ -185,7 +238,11 @@
 </head>
 <body>
   <div class="card">
-    <img src="IMG_2299.jpeg" alt="Обкладинка треку Золотий час" class="cover" loading="lazy" />
+    <div class="video-wrapper" id="videoWrapper">
+      <img src="IMG_2299.jpeg" alt="Обкладинка треку 'Золотий час'" id="coverImage" loading="lazy" />
+      <div class="play-button" id="playButton"></div>
+    </div>
+
     <h1>Золотий час</h1>
     <h2>Ярий feat БетБіт (smnbts prod.)</h2>
 
@@ -213,22 +270,20 @@
   </div>
 
   <script>
-    // Проверка — мобильное устройство?
-    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-
-    if (!isMobile) {
-      const cover = document.querySelector('.cover');
-
-      document.addEventListener('mousemove', e => {
-        const x = (e.clientX / window.innerWidth - 0.5) * 20;
-        const y = (e.clientY / window.innerHeight - 0.5) * 20;
-        cover.style.transform = `rotateX(${-y}deg) rotateY(${x}deg)`;
-      });
-
-      document.addEventListener('mouseleave', () => {
-        cover.style.transform = 'rotateX(0) rotateY(0)';
-      });
-    }
+    document.getElementById('videoWrapper').addEventListener('click', () => {
+      const wrapper = document.getElementById('videoWrapper');
+      wrapper.innerHTML = `
+        <iframe
+          src="https://www.youtube.com/embed/CftltODLio0?autoplay=1&rel=0"
+          title="Золотий час — Ярий & БетБіт"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+          loading="lazy"
+          style="width: 100%; height: 100%; border-radius: 10px;"
+        ></iframe>
+      `;
+    });
   </script>
 </body>
 </html>
