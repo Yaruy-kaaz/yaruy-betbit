@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html lang="uk">
 <head>
-<!-- Google tag (gtag.js) -->
+<!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-R1L6ER976E"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'G-R1L6ER976E');
 </script>
 <!-- SEO Description -->
@@ -25,224 +24,241 @@
 <meta name="twitter:title" content="Золотий час — Ярий feat БетБіт" />
 <meta name="twitter:description" content="Офіційний реліз треку «Золотий час» від Ярий & БетБіт (smnbts prod.). Дивись кліп та слухай на улюбленій платформі." />
 <meta name="twitter:image" content="https://yaruy-kaaz.github.io/yaruy-betbit/IMG_2299.jpeg" />
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <title>Золотий час — Ярий feat БетБіт</title>
-  <link rel="icon" href="IMG_2299.jpeg" type="image/jpeg" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
-  <style>
-    :root {
-      --text-light: #fff;
-      --text-muted: #ccc;
-      --btn-bg: rgba(0, 0, 0, 0.6);
-      --btn-hover: rgba(255, 255, 255, 0.08);
-      --btn-border: rgba(255, 255, 255, 0.15);
-    }
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: "Poppins", sans-serif;
-    }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>Золотий час — Ярий feat БетБіт</title>
+<link rel="icon" href="IMG_2299.jpeg" type="image/jpeg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
 
-    html, body {
-      height: 100%;
-      min-height: 100vh;
-      background: #000;
-    }
+<style>
+  :root {
+    --text-light: #fff;
+    --text-muted: #ccc;
+    --btn-bg: rgba(0, 0, 0, 0.6);
+    --btn-hover: rgba(255, 255, 255, 0.08);
+    --btn-border: rgba(255, 255, 255, 0.15);
+  }
 
-    body {
-      position: relative;
-      z-index: 0;
-    }
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+  }
 
-    body::before {
-      content: "";
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      background: url('IMG_2299.jpeg') no-repeat center center;
-      background-size: cover;
-      filter: blur(4px) brightness(0.4);
-      z-index: -1;
-    }
+  html, body {
+    height: 100%;
+    min-height: 100vh;
+    background: #000;
+  }
 
-    .card {
-      background-color: rgba(0, 0, 0, 0.65);
-      backdrop-filter: blur(6px);
-      border-radius: 14px;
-      padding: 24px 20px;
-      max-width: 360px;
-      margin: 40px auto;
-      text-align: center;
-      box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+  body {
+    position: relative;
+    z-index: 0;
+  }
+
+  body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: url('IMG_2299.jpeg') no-repeat center center;
+    background-size: cover;
+    filter: blur(4px) brightness(0.4);
+    z-index: -1;
+  }
+
+  .card {
+    background-color: rgba(0, 0, 0, 0.65);
+    backdrop-filter: blur(6px);
+    border-radius: 14px;
+    padding: 24px 20px;
+    max-width: 360px;
+    margin: 40px auto;
+    text-align: center;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeSlideIn 0.8s forwards ease-out;
+    animation-delay: 0.3s;
+  }
+
+  @keyframes fadeSlideIn {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .video-wrapper {
+    position: relative;
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    overflow: hidden;
+    aspect-ratio: 1 / 1;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    will-change: transform;
+    display: block;
+  }
+
+  .video-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    display: block;
+  }
+
+  .play-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 64px;
+    height: 64px;
+    background: rgba(255, 255, 255, 0.25);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s ease;
+    z-index: 2;
+  }
+
+  .play-button::before {
+    content: "";
+    display: block;
+    width: 0;
+    height: 0;
+    border-left: 18px solid white;
+    border-top: 12px solid transparent;
+    border-bottom: 12px solid transparent;
+  }
+
+  .pulse {
+    animation: pulse 1.5s infinite;
+  }
+
+  @keyframes pulse {
+    0% {
+      transform: translate(-50%, -50%) scale(1);
+      opacity: 1;
+    }
+    50% {
+      transform: translate(-50%, -50%) scale(1.15);
+      opacity: 0.7;
+    }
+    100% {
+      transform: translate(-50%, -50%) scale(1);
+      opacity: 1;
+    }
+  }
+
+  h1 {
+    font-size: 24px;
+    color: var(--text-light);
+    font-weight: 600;
+    margin-bottom: 6px;
+  }
+
+  h2 {
+    font-size: 15px;
+    color: var(--text-muted);
+    font-weight: 400;
+    margin-bottom: 24px;
+  }
+
+  .links {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background: var(--btn-bg);
+    color: #fff;
+    text-decoration: none;
+    padding: 14px;
+    border-radius: 8px;
+    width: 100%;
+    border: 1px solid var(--btn-border);
+    transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.15s ease;
+    opacity: 0;
+    animation: fadeInUp 0.5s forwards ease-out;
+    will-change: transform, opacity;
+  }
+
+  .link img {
+    width: 24px;
+    height: 24px;
+    transition: transform 0.3s ease;
+  }
+
+  .link:hover {
+    background: var(--btn-hover);
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.25);
+  }
+
+  .link:hover img {
+    transform: scale(1.1);
+  }
+
+  .link:active {
+    transform: scale(0.95);
+  }
+
+  .link span {
+    font-size: 16px;
+    font-weight: 500;
+  }
+
+  @keyframes fadeInUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    from {
       opacity: 0;
-      transform: translateY(20px);
-      animation: fadeSlideIn 0.8s forwards ease-out;
-      animation-delay: 0.3s;
+      transform: translateY(10px);
     }
+  }
 
-    @keyframes fadeSlideIn {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .video-wrapper {
-      position: relative;
-      width: 100%;
-      border-radius: 10px;
-      margin-bottom: 20px;
-      overflow: hidden;
-      aspect-ratio: 1 / 1;
-      cursor: pointer;
-      transition: transform 0.3s ease;
-      will-change: transform;
-    }
-
-    .video-wrapper img,
-    .video-wrapper iframe {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      border-radius: 10px;
-      display: block;
-    }
-
-    .play-button {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 64px;
-      height: 64px;
-      background: rgba(255, 255, 255, 0.25);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: background 0.3s ease;
-      z-index: 2;
-    }
-
-    .play-button::before {
-      content: "";
-      display: block;
-      width: 0;
-      height: 0;
-      border-left: 18px solid white;
-      border-top: 12px solid transparent;
-      border-bottom: 12px solid transparent;
-    }
-
-    .video-wrapper:hover .play-button {
-      background: rgba(255, 255, 255, 0.35);
-    }
-
-    h1 {
-      font-size: 24px;
-      color: var(--text-light);
-      font-weight: 600;
-      margin-bottom: 6px;
-    }
-
-    h2 {
-      font-size: 15px;
-      color: var(--text-muted);
-      font-weight: 400;
-      margin-bottom: 24px;
-    }
-
-    .links {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
+  @media (max-width: 480px) {
+    h1 { font-size: 22px; }
+    h2 { font-size: 14px; }
 
     .link {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      background: var(--btn-bg);
-      color: #fff;
-      text-decoration: none;
-      padding: 14px;
-      border-radius: 8px;
-      width: 100%;
-      border: 1px solid var(--btn-border);
-      transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.15s ease;
-      opacity: 0;
-      animation: fadeInUp 0.5s forwards ease-out;
-      will-change: transform, opacity;
+      padding: 12px;
+    }
+
+    .link span {
+      font-size: 15px;
     }
 
     .link img {
       width: 24px;
       height: 24px;
-      transition: transform 0.3s ease;
     }
-
-    .link:hover {
-      background: var(--btn-hover);
-      box-shadow: 0 4px 12px rgba(255, 255, 255, 0.25);
-    }
-
-    .link:hover img {
-      transform: scale(1.1);
-    }
-
-    .link:active {
-      transform: scale(0.95);
-    }
-
-    .link span {
-      font-size: 16px;
-      font-weight: 500;
-    }
-
-    @keyframes fadeInUp {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-      from {
-        opacity: 0;
-        transform: translateY(10px);
-      }
-    }
-
-    @media (max-width: 480px) {
-      h1 { font-size: 22px; }
-      h2 { font-size: 14px; }
-
-      .link {
-        padding: 12px;
-      }
-
-      .link span {
-        font-size: 15px;
-      }
-
-      .link img {
-        width: 24px;
-        height: 24px;
-      }
-    }
-  </style>
+  }
+</style>
 </head>
 <body>
   <div class="card">
-    <div class="video-wrapper" id="videoWrapper">
-      <img src="IMG_2299.jpeg" alt="Обкладинка треку 'Золотий час'" id="coverImage" loading="lazy" />
-      <div class="play-button" id="playButton"></div>
-    </div>
+    <a class="video-wrapper" href="https://youtu.be/CftltODLio0" target="_blank" rel="noopener noreferrer">
+      <img src="IMG_2299.jpeg" alt="Обкладинка треку 'Золотий час'" loading="lazy" />
+      <div class="play-button pulse"></div>
+    </a>
 
     <h1>Золотий час</h1>
     <h2>Ярий feat БетБіт (smnbts prod.)</h2>
@@ -269,22 +285,5 @@
       </a>
     </div>
   </div>
-
-  <script>
-    document.getElementById('videoWrapper').addEventListener('click', () => {
-      const wrapper = document.getElementById('videoWrapper');
-      wrapper.innerHTML = `
-        <iframe
-          src="https://www.youtube.com/embed/CftltODLio0?autoplay=1&rel=0"
-          title="Золотий час — Ярий & БетБіт"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen
-          loading="lazy"
-          style="width: 100%; height: 100%; border-radius: 10px;"
-        ></iframe>
-      `;
-    });
-  </script>
 </body>
 </html>
